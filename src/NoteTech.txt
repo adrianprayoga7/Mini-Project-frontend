@@ -1,0 +1,7 @@
+FRONTEND (client folder)
+
+-axios : digunakan untuk melakukan request HTTP dan memudahkan dalam mengirim dan menerima data dari server
+-moment : digunakan untuk set tanggal berdasarkan tanggal saat ini
+-react-dom : digunakan untuk membuat dan memodifikasi elemen html,css dan dom dalam js
+-react-router-dom : digunakan untuk membuat routing dan navigasi di aplikasi
+-sass : digunakan untuk mengelola style dalam web
