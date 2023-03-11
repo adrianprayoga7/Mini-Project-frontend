@@ -1,7 +1,6 @@
 import './rightBar.scss';
 
 const RightBar = () => {
-  //ELEMEN HTML
   return (
     <div className="rightBar">
       <div className="container">
@@ -85,7 +84,7 @@ const RightBar = () => {
             <span>1 min ago</span>
           </div>
         </div>
-        {/* <div className="item">
+        <div className="item">
           <span>Online Friends</span>
           <div className="user">
             <div className="userInfo">
@@ -197,7 +196,7 @@ const RightBar = () => {
               <span>Jane Doe</span>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
