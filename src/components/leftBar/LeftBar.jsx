@@ -1,24 +1,26 @@
 import './leftBar.scss';
-// import Friends from '../../assets/1.png';
-// import Groups from '../../assets/2.png';
-// import Market from '../../assets/3.png';
-// import Watch from '../../assets/4.png';
-// import Memories from '../../assets/5.png';
-import Events from '../../assets/6.png';
-import Gaming from '../../assets/7.png';
-import Gallery from '../../assets/8.png';
-import Videos from '../../assets/9.png';
-import Messages from '../../assets/10.png';
-import Tutorials from '../../assets/11.png';
+import Accessories from '../../assets/2.png';
+import Gaming from '../../assets/1.png';
+import Event from '../../assets/3.png';
+import Hardware from '../../assets/4.png';
+import New from '../../assets/5.png';
+import Trending from '../../assets/6.png';
 import Logout from '../../assets/14.png';
-import Fund from '../../assets/13.png';
+import Log from '../../assets/7.png';
+import Competition from '../../assets/15.png';
+import Users from '../../assets/8.png';
+import Posts from '../../assets/9.png';
 import { AuthContext } from '../../context/authContext';
 import { useContext } from 'react';
-import { Link } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const LeftBar = () => {
-  //mengambil children dari class authContext
   const { currentUser, logout } = useContext(AuthContext);
+
+  // Function to handle logout
+  const handleLogout = () => {
+    logout();
+  };
 
   //ELEMEN HTML
   return (
@@ -34,68 +36,89 @@ const LeftBar = () => {
               <span>{currentUser.name}</span>
             </Link>
           </div>
-          {/* <div className="item">
-            <img src={Friends} alt="" />
-            <span>Logout</span>
-          </div> */}
-          {/* <div className="item">
-            <img src={Groups} alt="" />
-            <span>Groups</span>
-          </div>
-          <div className="item">
-            <img src={Market} alt="" />
-            <span>Marketplace</span>
-          </div>
-          <div className="item">
-            <img src={Watch} alt="" />
-            <span>Watch</span>
-          </div>
-          <div className="item">
-            <img src={Memories} alt="" />
-            <span>Memories</span>
-          </div> */}
         </div>
         <hr />
         <div className="menu">
-          <span>Forum</span>
-          <div className="item">
-            <img src={Events} alt="" />
-            <span>Games</span>
-          </div>
-          <div className="item">
-            <img src={Gaming} alt="" />
-            <span>Accesorries</span>
-          </div>
-          <div className="item">
-            <img src={Gallery} alt="" />
-            <span>Competition</span>
-          </div>
-          <div className="item">
-            <img src={Videos} alt="" />
-            <span>Event</span>
-          </div>
-          <div className="item">
-            <img src={Messages} alt="" />
-            <span>Hardware</span>
-          </div>
+          <span>Sub Forum</span>
+          <Link
+            to={`/fgames`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="item">
+              <img src={Gaming} alt="" />
+              <span>Games</span>
+            </div>
+          </Link>
+          <Link
+            to={`/facc`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="item">
+              <img src={Accessories} alt="" />
+              <span>Accesorries</span>
+            </div>
+          </Link>
+          <Link
+            to={`/fcomp`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="item">
+              <img src={Competition} alt="" />
+              <span>Competition</span>
+            </div>
+          </Link>
+          <Link
+            to={`/fevent`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="item">
+              <img src={Event} alt="" />
+              <span>Event</span>
+            </div>
+          </Link>
+          <Link
+            to={`/fhardware`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <div className="item">
+              <img src={Hardware} alt="" />
+              <span>Hardware</span>
+            </div>
+          </Link>
         </div>
         <hr />
         <div className="menu">
           <span>What's New</span>
           <div className="item">
-            <img src={Fund} alt="" />
+            <img src={New} alt="" />
             <span>New</span>
           </div>
           <div className="item">
-            <img src={Tutorials} alt="" />
+            <img src={Trending} alt="" />
             <span>Trending</span>
           </div>
         </div>
         <hr />
         <div className="menu">
+          <span>Admin</span>
           <div className="item">
+            <img src={Log} alt="" />
+            <span>App Log</span>
+          </div>
+          <div className="item">
+            <img src={Users} alt="" />
+            <span>All Users</span>
+          </div>
+          <div className="item">
+            <img src={Posts} alt="" />
+            <span>All Posts</span>
+          </div>
+        </div>
+        <hr />
+        <div className="menu">
+          <div className="item" onClick={handleLogout}>
             <img src={Logout} alt="" />
-            <span onClick={logout}>Logout</span>
+            <span>Logout</span>
           </div>
         </div>
       </div>

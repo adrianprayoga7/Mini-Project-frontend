@@ -1,8 +1,6 @@
 import './profile.scss';
 import FacebookTwoToneIcon from '@mui/icons-material/FacebookTwoTone';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import PinterestIcon from '@mui/icons-material/Pinterest';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PlaceIcon from '@mui/icons-material/Place';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -20,7 +18,6 @@ import { useState } from 'react';
 const Profile = () => {
   //menetapkan state dengan nilai false
   const [openUpdate, setOpenUpdate] = useState(false);
-
   //mengambil children dari class authContext
   const { currentUser } = useContext(AuthContext);
 
@@ -72,7 +69,6 @@ const Profile = () => {
     mutation.mutate(relationshipData.includes(currentUser.id));
   };
 
-  //ELEMEN HTML
   return (
     <div className="profile">
       {isLoading ? (
@@ -99,12 +95,6 @@ const Profile = () => {
                 <a href="http://facebook.com">
                   <TwitterIcon fontSize="large" />
                 </a>
-                {/* <a href="http://facebook.com">
-                  <LinkedInIcon fontSize="large" />
-                </a> */}
-                {/* <a href="http://facebook.com">
-                  <PinterestIcon fontSize="large" />
-                </a> */}
               </div>
               <div className="center">
                 <span>{data.name}</span>

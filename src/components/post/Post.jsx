@@ -13,6 +13,14 @@ import { makeRequest } from '../../axios';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/authContext';
 
+const endpoint = {
+  Games: 'fGames',
+  Competition: 'fComp',
+  Accesorries: 'fAcc',
+  Event: 'fEvent',
+  Hardware: 'fHardware',
+};
+
 const Post = ({ post }) => {
   //deklarasi usestate dengan nilai awal false
   const [commentOpen, setCommentOpen] = useState(false);
@@ -86,7 +94,13 @@ const Post = ({ post }) => {
                 to={`/profile/${post.userId}`}
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
-                <span className="name">{post.name}</span>
+                <span className="name">{post.name} / </span>
+                <Link
+                  to={`/${endpoint[post.subforum]}`}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <span className="subforum"> {post.subforum}</span>
+                </Link>
               </Link>
               <span className="date">{moment(post.createdAt).fromNow()}</span>
             </div>

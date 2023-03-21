@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { makeRequest } from '../../axios';
 import './update.scss';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CloseIcon from '@mui/icons-material/Close';
 
@@ -62,6 +62,8 @@ const Update = ({ setOpenUpdate, user }) => {
   const handleClick = async (e) => {
     e.preventDefault();
 
+    //TODO: find a better way to get image URL
+
     let coverUrl;
     let profileUrl;
     coverUrl = cover ? await upload(cover) : user.coverPic;
@@ -74,7 +76,6 @@ const Update = ({ setOpenUpdate, user }) => {
     setProfile(null);
   };
 
-  //ELEMEN HTML
   return (
     <div className="update">
       <div className="wrapper">
@@ -160,7 +161,7 @@ const Update = ({ setOpenUpdate, user }) => {
           <button onClick={handleClick}>Update</button>
         </form>
         <button className="close" onClick={() => setOpenUpdate(false)}>
-          close
+          <CloseIcon />
         </button>
       </div>
     </div>

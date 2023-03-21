@@ -16,16 +16,29 @@ export const AuthContextProvider = ({ children }) => {
   const login = async (inputs) => {
     const res = await axios.post(
       'http://localhost:8800/api/auth/login',
-      inputs
+      inputs,
+      {
+        withCredentials: true,
+      }
     );
+
     setCurrentUser(res.data);
   };
 
   //fungsi untuk melakukan logout
   //dan mengubah variable di CurrentUser menjadi null
-  const logout = async (inputs) => {
-    await axios.post('http://localhost:8800/api/auth/logout');
+  //dan remove localstorage
+  const logout = async () => {
+    const res = await axios.post(
+      'http://localhost:8800/api/auth/logout',
+      null,
+      {
+        withCredentials: true,
+      }
+    );
+
     setCurrentUser(null);
+    localStorage.removeItem('user');
   };
 
   //fungsi untuk menyimpan data user saat ini ke dalam localstorage

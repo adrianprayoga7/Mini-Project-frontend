@@ -17,6 +17,11 @@ import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModeContext';
 import { AuthContext } from './context/authContext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Fgames from './pages/fGames/Fgames';
+import Facc from './pages/fAcc/Facc';
+import Fcomp from './pages/fComp/Fcomp';
+import Fevent from './pages/fEvent/Fevent';
+import Fhardware from './pages/fHardware/Fhardware';
 
 function App() {
   //menggunakan children dari class authContext
@@ -53,6 +58,7 @@ function App() {
     return children;
   };
 
+  //set router dari setiap page
   const router = createBrowserRouter([
     {
       path: '/',
@@ -69,6 +75,26 @@ function App() {
         {
           path: '/profile/:id',
           element: <Profile />,
+        },
+        {
+          path: '/fgames',
+          element: <Fgames />,
+        },
+        {
+          path: '/facc',
+          element: <Facc />,
+        },
+        {
+          path: '/fcomp',
+          element: <Fcomp />,
+        },
+        {
+          path: 'fevent',
+          element: <Fevent />,
+        },
+        {
+          path: 'fhardware',
+          element: <Fhardware />,
         },
       ],
     },

@@ -7,7 +7,7 @@ import { makeRequest } from '../../axios';
 //digunakan untuk melakukan query pada post berdasarkan userId
 //akan mengembalikan data yang didapat dari request
 const Posts = ({ userId }) => {
-  const { isLoading, error, data } = useQuery(['posts'], () =>
+  const { isLoading, error, data } = useQuery(['posts', userId], () =>
     makeRequest.get('/posts?userId=' + userId).then((res) => {
       return res.data;
     })
